@@ -1,6 +1,6 @@
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 #define QUICK_TAP_TERM 0
-#define IGNORE_MOD_TAP_INTERRUPT
+// #define IGNORE_MOD_TAP_INTERRUPT
 // The default behavior of mod-taps will change to mimic IGNORE_MOD_TAP_INTERRUPT in the future.
 // If you wish to keep the old default behavior of mod-taps, please use HOLD_ON_OTHER_KEY_PRESS.
 
