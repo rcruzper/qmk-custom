@@ -1,10 +1,14 @@
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
-#define TAPPING_FORCE_HOLD
-
-//#define PERMISSIVE_HOLD
+#define QUICK_TAP_TERM 0
+#define IGNORE_MOD_TAP_INTERRUPT
+// The default behavior of mod-taps will change to mimic IGNORE_MOD_TAP_INTERRUPT in the future.
+// If you wish to keep the old default behavior of mod-taps, please use HOLD_ON_OTHER_KEY_PRESS.
 
 // Limits the max. amount of layers to 8 to save firmware memory.
 #define LAYER_STATE_8BIT
+
+#define SPLIT_LED_STATE_ENABLE
+#define SPLIT_LAYER_STATE_ENABLE
 
 #undef ENABLE_RGB_MATRIX_ALPHAS_MODS
 #undef ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
@@ -48,6 +52,3 @@
 #undef ENABLE_RGB_MATRIX_MULTISPLASH
 #undef ENABLE_RGB_MATRIX_SOLID_SPLASH
 #undef ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
-
-#define RGB_MATRIX_STARTUP_MODE RGB_MATRIX_SOLID_REACTIVE_SIMPLE
-#define RGB_MATRIX_STARTUP_HUE 148
