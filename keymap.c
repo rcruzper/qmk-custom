@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_ESC,  CTL_A,   ALT_S,   GUI_D,   SFT_F,   KC_G,                               KC_H,    SFT_J,   GUI_K,   ALT_L,   CTL_SCLN, KC_QUOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    LA_GAM,           _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
+     CW_TOGG, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    LA_GAM,           _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     LA_NUM,  LA_NAV,  KC_ENT,                    KC_SPC,   LA_SYM,  _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -130,6 +130,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 void eeconfig_init_user(void) {  // EEPROM is getting reset!
     // use the non noeeprom versions, to write these values to EEPROM too
     rgblight_enable(); // Enable RGB by default
-    rgblight_sethsv(HSV_BLUE);  // Set it to CYAN by default
+    rgblight_sethsv(HSV_CYAN);  // Set it to CYAN by default
     rgblight_mode(RGB_MATRIX_SOLID_REACTIVE_SIMPLE); // set to solid by default
 }
