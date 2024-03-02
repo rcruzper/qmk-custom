@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 void keyboard_post_init_user(void) { // Call the keymap level matrix init.
     // Set default layer
     rgblight_enable_noeeprom();
-    rgblight_sethsv_noeeprom(HSV_BLUE);
+    rgblight_sethsv_noeeprom(HSV_CYAN);
     rgblight_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
 }
 
@@ -132,4 +132,13 @@ void eeconfig_init_user(void) {  // EEPROM is getting reset!
     rgblight_enable(); // Enable RGB by default
     rgblight_sethsv(HSV_CYAN);  // Set it to CYAN by default
     rgblight_mode(RGB_MATRIX_SOLID_REACTIVE_SIMPLE); // set to solid by default
+}
+
+void caps_word_set_user(bool active) {
+    if (active) {
+        rgb_matrix_mode(RGB_MATRIX_CUSTOM_caps_word_effect);
+    } else {
+        rgblight_sethsv_noeeprom(HSV_CYAN);
+        rgblight_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+    }
 }
