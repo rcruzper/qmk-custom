@@ -33,6 +33,10 @@ enum layers {
 #define ALT_L LALT_T(KC_L)
 #define CTL_SCLN RCTL_T(KC_SCLN)
 
+enum custom_keycodes {
+  ARROW = SAFE_RANGE,
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [DEF] = LAYOUT(
@@ -83,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, KC_LT,   KC_LBRC, KC_LCBR, KC_LPRN, KC_TILD,                            KC_CIRC, KC_RPRN, KC_RCBR, KC_RBRC, KC_GT,   _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, KC_PMNS, KC_ASTR, KC_EQL,  KC_UNDS, KC_DLR,                             KC_HASH, _______, _______, KC_GRV,  KC_COLN, KC_DQUO,
+     _______, KC_PMNS, KC_ASTR, KC_EQL,  KC_UNDS, KC_DLR,                             KC_HASH, _______, ARROW,   KC_GRV,  KC_COLN, KC_DQUO,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      _______, KC_PPLS, KC_PIPE, KC_AT,   KC_PSLS, KC_PERC, _______,          _______, _______, KC_NUHS, KC_AMPR, KC_EXLM, KC_QUES, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
@@ -105,6 +109,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   )
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+  switch (keycode) {
+    case ARROW:
+      if (record->event.pressed) {
+        SEND_STRING("->");
+      }
+      return false;
+  }
+  return true;
+}
 
 // documentation: https://docs.qmk.fm/#/feature_eeprom
 void keyboard_post_init_user(void) { // Call the keymap level matrix init.
