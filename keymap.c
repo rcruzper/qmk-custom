@@ -120,8 +120,12 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         rgb_matrix_mode(RGB_MATRIX_CUSTOM_gamepad_effect);
         break;
     default: //  for any other layers, or the default layer
-        rgblight_sethsv_noeeprom(HSV_CYAN);
-        rgblight_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+        if (is_caps_word_on()) {
+           rgb_matrix_mode(RGB_MATRIX_CUSTOM_caps_word_effect);
+        } else {
+            rgblight_sethsv_noeeprom(HSV_CYAN);
+            rgblight_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+        }
         break;
     }
   return state;
